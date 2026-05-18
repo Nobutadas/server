@@ -58,7 +58,7 @@ local gizmoOnTrigger = function(player, gizmoNum, placeCS, collectCS)
         -- has orb been placed here?
         if not mission:isVarBitsSet(player, 'GizmoUsed', gizmoNum) then
             -- place orb
-            return mission:event(placeCS)
+            return mission:cutscene(placeCS)
         else
             -- orb has been already been placed
             player:messageSpecial(msgBase) -- "A dark Mana Orb is already placed here."
@@ -67,7 +67,7 @@ local gizmoOnTrigger = function(player, gizmoNum, placeCS, collectCS)
     elseif player:getMissionStatus(mission.areaId) == 4 then
         -- collect orb
         if not mission:isVarBitsSet(player, 'GizmoEmpty', gizmoNum) then
-            return mission:event(collectCS)
+            return mission:cutscene(collectCS)
         else
             --orb has already been retrieved
             player:messageSpecial(msgBase + 3) -- "You have already retrieved a glowing Mana Orb from here."
@@ -203,7 +203,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WOODS] =
         {
-            ['Apururu'] = mission:progressEvent(137),
+            ['Apururu'] = mission:progressCutscene(137),
 
             onEventFinish =
             {
@@ -341,7 +341,7 @@ mission.sections =
 
         [xi.zone.OUTER_HORUTOTO_RUINS] =
         {
-            ['_5e9'] = mission:event(44),
+            ['_5e9'] = mission:progressCutscene(44),
 
             onEventFinish =
             {
@@ -385,7 +385,7 @@ mission.sections =
         -- You somehow avoided losing the orbs.
         [xi.zone.WINDURST_WOODS] =
         {
-            ['Apururu'] = mission:event(145),
+            ['Apururu'] = mission:progressCutscene(145),
 
             onEventFinish =
             {
@@ -414,7 +414,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WOODS] =
         {
-            ['Apururu'] = mission:progressEvent(143),
+            ['Apururu'] = mission:progressCutscene(143),
 
             onEventFinish =
             {

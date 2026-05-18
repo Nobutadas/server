@@ -193,9 +193,9 @@ mission.sections =
                     local completed = player:hasCompletedMission(mission.areaId, mission.missionId)
 
                     if not completed then
-                        return mission:progressEvent(182) -- first time
+                        return mission:progressCutscene(182) -- first time
                     elseif completed then
-                        return mission:progressEvent(687) -- repeating
+                        return mission:progressCutscene(687) -- repeating
                     end
                 end,
             },

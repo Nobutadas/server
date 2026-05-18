@@ -99,7 +99,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 2 then
-                        return mission:progressEvent(362)
+                        return mission:progressCutscene(362)
                     end
                 end,
             },
@@ -133,7 +133,7 @@ mission.sections =
                         (missionStatus == 4 or missionStatus == 5) and
                         npcUtil.tradeHasExactly(trade, xi.item.CLUMP_OF_GOOBBUE_HUMUS)
                     then
-                        return mission:progressEvent(13)
+                        return mission:progressCutscene(13)
                     end
                 end,
 
@@ -183,11 +183,11 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 0 then
-                        return mission:progressEvent(619)
+                        return mission:progressCutscene(619)
                     elseif missionStatus == 3 then
-                        return mission:progressEvent(620)
+                        return mission:progressCutscene(620)
                     elseif missionStatus == 6 then
-                        return mission:progressEvent(621)
+                        return mission:progressCutscene(621)
                     end
                 end,
             },

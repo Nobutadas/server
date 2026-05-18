@@ -88,9 +88,9 @@ mission.sections =
                     -- the need of gate guard interaction, KI tracking is used to determine whether its the first
                     -- or subsequent time the door has been triggered.
                     if player:hasKeyItem(xi.ki.MESSAGE_TO_JEUNO_WINDURST) then
-                        return mission:progressEvent(166)
+                        return mission:progressCutscene(166)
                     else
-                        return mission:progressEvent(190)
+                        return mission:progressCutscene(190)
                     end
                 end,
             },
@@ -118,7 +118,7 @@ mission.sections =
                         player:getMissionStatus(mission.areaId) == 12 and
                         player:hasKeyItem(xi.ki.BURNT_SEAL)
                     then
-                        return mission:progressEvent(192)
+                        return mission:progressCutscene(192)
                     end
                 end,
             },

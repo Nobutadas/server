@@ -89,7 +89,7 @@ mission.sections =
                         player:getMissionStatus(mission.areaId) == 1 and
                         not player:hasKeyItem(xi.ki.AURASTERY_RING)
                     then
-                        return mission:progressEvent(122, 0, xi.ki.AURASTERY_RING)
+                        return mission:progressCutscene(122, 0, xi.ki.AURASTERY_RING)
                     end
                 end,
             },
@@ -118,7 +118,7 @@ mission.sections =
                         player:getMissionStatus(mission.areaId) == 1 and
                         not player:hasKeyItem(xi.ki.RHINOSTERY_RING)
                     then
-                        return mission:progressEvent(22, 0, xi.ki.RHINOSTERY_RING)
+                        return mission:progressCutscene(22, 0, xi.ki.RHINOSTERY_RING)
                     end
                 end,
             },
@@ -144,7 +144,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 3 then
-                        return mission:progressEvent(326, 0, xi.ki.ORASTERY_RING)
+                        return mission:progressCutscene(326, 0, xi.ki.ORASTERY_RING)
                     end
                 end,
             },
@@ -163,7 +163,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 9 then
-                        return mission:progressEvent(75)
+                        return mission:progressCutscene(75)
                     end
                 end,
             },
@@ -191,7 +191,7 @@ mission.sections =
                         SpawnMob(outerHorutotoID.mob.JESTER_WHOD_BE_KING_OFFSET + 0)
                         SpawnMob(outerHorutotoID.mob.JESTER_WHOD_BE_KING_OFFSET + 1)
                     elseif missionStatus == 5 then
-                        return mission:progressEvent(71)
+                        return mission:progressCutscene(71)
                     end
                 end,
             },
@@ -235,7 +235,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 7 then
-                        return mission:progressEvent(397, 0, 0, 0, 282)
+                        return mission:progressCutscene(397, 0, 0, 0, 282)
                     end
                 end,
             },
@@ -258,7 +258,7 @@ mission.sections =
                         player:getMissionStatus(mission.areaId) == 1 and
                         not player:hasKeyItem(xi.ki.OPTISTERY_RING)
                     then
-                        return mission:progressEvent(801, 0, xi.ki.OPTISTERY_RING)
+                        return mission:progressCutscene(801, 0, xi.ki.OPTISTERY_RING)
                     end
                 end,
             },
@@ -285,17 +285,17 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 0 then
-                        return mission:progressEvent(588, 0, xi.ki.MANUSTERY_RING)
+                        return mission:progressCutscene(588, 0, xi.ki.MANUSTERY_RING)
                     elseif missionStatus == 2 then
                         return mission:progressEvent(601, 0, xi.ki.ORASTERY_RING)
                     elseif missionStatus == 6 then
-                        return mission:progressEvent(590)
+                        return mission:progressCutscene(590)
                     elseif missionStatus == 7 then
                         return mission:progressEvent(589)
                     elseif missionStatus == 8 then
-                        return mission:progressEvent(592)
+                        return mission:progressCutscene(592)
                     elseif missionStatus == 10 then
-                        return mission:progressEvent(609)
+                        return mission:progressCutscene(609)
                     end
                 end,
             },

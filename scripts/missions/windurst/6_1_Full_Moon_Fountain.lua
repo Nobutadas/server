@@ -117,7 +117,7 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 0 then
-                        return mission:progressEvent(456, 0, xi.ki.SOUTHWESTERN_STAR_CHARM)
+                        return mission:progressCutscene(456, 0, xi.ki.SOUTHWESTERN_STAR_CHARM)
                     elseif missionStatus == 3 then
                         return mission:progressEvent(457)
                     end
@@ -148,7 +148,7 @@ mission.sections =
 
                             return mission:messageSpecial(outerHorutotoID.text.GUARDIAN_BLOCKING_WAY)
                         elseif missionStatus == 2 then
-                            return mission:progressEvent(68)
+                            return mission:progressCutscene(68)
                         end
                     end
                 end,

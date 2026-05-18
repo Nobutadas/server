@@ -87,7 +87,7 @@ mission.sections =
                     elseif missionStatus == 1 then
                         return mission:progressEvent(122)
                     elseif missionStatus == 2 then
-                        return mission:progressEvent(135)
+                        return mission:progressCutscene(135)
                     end
                 end,
             },
@@ -113,7 +113,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 1 then
-                        return mission:progressEvent(41, 0, xi.ki.CHARM_OF_LIGHT)
+                        return mission:progressCutscene(41, 0, xi.ki.CHARM_OF_LIGHT)
                     end
                 end,
             },
@@ -153,7 +153,7 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 0 then
-                        return mission:progressEvent(257, 0, xi.item.RUSTY_DAGGER)
+                        return mission:progressCutscene(257, 0, xi.item.RUSTY_DAGGER)
                     elseif missionStatus == 3 then
                         return mission:progressEvent(150, 0, xi.item.RUSTY_DAGGER)
                     end

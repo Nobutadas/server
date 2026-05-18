@@ -86,7 +86,7 @@ mission.sections =
                     if missionStatus == 0 then
                         return mission:progressEvent(737)
                     elseif missionStatus == 1 then
-                        return mission:progressEvent(736)
+                        return mission:progressCutscene(736)
                     elseif missionStatus == 2 then
                         return mission:progressEvent(738)
                     end
@@ -105,7 +105,7 @@ mission.sections =
                     elseif missionStatus == 2 then
                         return mission:progressEvent(739)
                     elseif missionStatus == 5 and player:hasKeyItem(xi.ki.BOOK_OF_THE_GODS) then
-                        return mission:progressEvent(742)
+                        return mission:progressCutscene(742)
                     end
                 end,
             },
@@ -185,7 +185,7 @@ mission.sections =
                         player:getZPos() < 332 and
                         player:getMissionStatus(mission.areaId) >= 3
                     then
-                        return mission:progressEvent(23)
+                        return mission:progressCutscene(23)
                     end
                 end,
             },

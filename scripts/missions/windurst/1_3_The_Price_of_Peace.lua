@@ -146,7 +146,7 @@ mission.sections =
         [xi.zone.WINDURST_WATERS] =
         {
             ['Kenapa-Keppa']   = mission:event(145),
-            ['Leepe-Hoppe']    = mission:progressEvent(140),
+            ['Leepe-Hoppe']    = mission:progressCutscene(140),
             ['Ohbiru-Dohbiru'] = mission:event(143),
 
             onEventFinish =
@@ -207,7 +207,7 @@ mission.sections =
             onTriggerAreaEnter =
             {
                 [1] = function(player, triggerArea)
-                    return mission:progressEvent(146)
+                    return mission:progressCutscene(146)
                 end,
             },
 
@@ -228,7 +228,7 @@ mission.sections =
 
         [xi.zone.PORT_WINDURST] =
         {
-            ['Janshura-Rashura'] = mission:progressEvent(114),
+            ['Janshura-Rashura'] = mission:progressCutscene(114),
 
             onEventFinish =
             {
@@ -240,7 +240,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WALLS] =
         {
-            ['Zokima-Rokima'] = mission:progressEvent(116),
+            ['Zokima-Rokima'] = mission:progressCutscene(116),
 
             onEventFinish =
             {
@@ -253,7 +253,7 @@ mission.sections =
         [xi.zone.WINDURST_WATERS] =
         {
             ['Leepe-Hoppe'] = mission:event(147):importantOnce(),
-            ['Mokyokyo']    = mission:progressEvent(148),
+            ['Mokyokyo']    = mission:progressCutscene(148),
 
             onEventFinish =
             {
@@ -265,7 +265,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WOODS] =
         {
-            ['Rakoh_Buuma'] = mission:progressEvent(154),
+            ['Rakoh_Buuma'] = mission:progressCutscene(154),
 
             onEventFinish =
             {

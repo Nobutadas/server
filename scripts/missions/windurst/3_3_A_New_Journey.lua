@@ -86,14 +86,14 @@ mission.sections =
                         player:getMissionStatus(mission.areaId) == 2 and
                         npcUtil.tradeHasExactly(trade, xi.item.DELKFUTT_KEY)
                     then
-                        return mission:progressEvent(2)
+                        return mission:progressCutscene(2)
                     end
                 end,
 
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 2 then
                         if player:hasKeyItem(xi.ki.DELKFUTT_KEY) then
-                            return mission:progressEvent(2)
+                            return mission:progressCutscene(2)
                         else
                             return mission:messageSpecial(lowerDelkfuttID.text.THE_DOOR_IS_FIRMLY_SHUT_OPEN_KEY):setPriority(1000)
                         end
@@ -120,7 +120,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 4 then
-                        return mission:progressEvent(40)
+                        return mission:progressCutscene(40)
                     end
                 end,
             },
@@ -131,7 +131,7 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 1 then
-                        return mission:progressEvent(43)
+                        return mission:progressCutscene(43)
                     elseif missionStatus == 2 then
                         return mission:progressEvent(68)
                     elseif missionStatus == 3 then
@@ -163,7 +163,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 0 then
-                        return mission:progressEvent(153)
+                        return mission:progressCutscene(153)
                     end
                 end,
             },

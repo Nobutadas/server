@@ -80,7 +80,7 @@ mission.sections =
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 0 then
                         local hasKIParam = player:hasKeyItem(xi.ki.ARCHDUCAL_AUDIENCE_PERMIT) and 1 or 0
-                        return mission:progressEvent(131, hasKIParam)
+                        return mission:progressCutscene(131, hasKIParam)
                     end
                 end,
             },
@@ -89,7 +89,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 1 then
-                        return mission:progressEvent(128)
+                        return mission:progressCutscene(128)
                     end
                 end,
             },
@@ -126,9 +126,9 @@ mission.sections =
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 2 then
                         if player:hasKeyItem(xi.ki.SILVER_BELL) then
-                            return mission:progressEvent(152, 1)
+                            return mission:progressCutscene(152, 1)
                         else
-                            return mission:progressEvent(152)
+                            return mission:progressCutscene(152)
                         end
                     end
                 end,
@@ -162,9 +162,9 @@ mission.sections =
                 onTrigger = function(player, npc)
                     if magiciteCounter(player) == 3 then
                         if player:hasKeyItem(xi.ki.AIRSHIP_PASS) then
-                            return mission:progressEvent(60, 1, 1)
+                            return mission:progressCutscene(60, 1, 1)
                         else
-                            return mission:progressEvent(60)
+                            return mission:progressCutscene(60)
                         end
                     end
                 end,
@@ -214,7 +214,7 @@ mission.sections =
                 onTrigger = function(player, npc)
                     if not player:hasKeyItem(xi.ki.YAGUDO_TORCH) then
                         if mission:getVar(player, 'Option') == 1 then
-                            return mission:progressEvent(184)
+                            return mission:progressCutscene(184)
                         else
                             return mission:progressEvent(80)
                         end
@@ -246,7 +246,7 @@ mission.sections =
                         not player:hasKeyItem(xi.ki.YAGUDO_TORCH) and
                         mission:getVar(player, 'Option') == 0
                     then
-                        return mission:progressEvent(80)
+                        return mission:progressCutscene(80)
                     end
                 end,
             },
@@ -267,9 +267,9 @@ mission.sections =
                     if not player:hasKeyItem(xi.ki.MAGICITE_ORASTONE) then
                         if magiciteCounter(player) == 2 then
                             -- Play Lion part of the CS (Last Magicite Received)
-                            return mission:progressEvent(44, 152, 3, 1743, 3)
+                            return mission:progressCutscene(44, 152, 3, 1743, 3)
                         else
-                            return mission:progressEvent(44)
+                            return mission:progressCutscene(44)
                         end
                     end
                 end,
@@ -301,9 +301,9 @@ mission.sections =
                     if not player:hasKeyItem(xi.ki.MAGICITE_OPTISTONE) then
                         if magiciteCounter(player) == 2 then
                             -- Play Lion part of the CS (Last Magicite Received)
-                            return mission:progressEvent(0, 1, 1, 1, 1, 1, 1, 1, 1)
+                            return mission:progressCutscene(0, 1, 1, 1, 1, 1, 1, 1, 1)
                         else
-                            return mission:progressEvent(0)
+                            return mission:progressCutscene(0)
                         end
                     end
                 end,
@@ -325,9 +325,9 @@ mission.sections =
                     if not player:hasKeyItem(xi.ki.MAGICITE_AURASTONE) then
                         if magiciteCounter(player) == 2 then
                             -- Play Lion part of the CS (Last Magicite Received)
-                            return mission:progressEvent(0, 1)
+                            return mission:progressCutscene(0, 1)
                         else
-                            return mission:progressEvent(0)
+                            return mission:progressCutscene(0)
                         end
                     end
                 end,

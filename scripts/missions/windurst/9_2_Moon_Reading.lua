@@ -119,16 +119,16 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 0 then
-                        return mission:progressEvent(384)
+                        return mission:progressCutscene(384)
                     elseif
                         missionStatus == 1 and
                         player:hasKeyItem(xi.ki.ANCIENT_VERSE_OF_ROMAEVE) and
                         player:hasKeyItem(xi.ki.ANCIENT_VERSE_OF_ALTEPA) and
                         player:hasKeyItem(xi.ki.ANCIENT_VERSE_OF_UGGALEPIH)
                     then
-                        return mission:progressEvent(385)
+                        return mission:progressCutscene(385)
                     elseif missionStatus == 3 then
-                        return mission:progressEvent(386, 0, 0, xi.ki.ORASTERY_RING)
+                        return mission:progressCutscene(386, 0, 0, xi.ki.ORASTERY_RING)
                     elseif missionStatus == 4 then
                         -- This does not use the npcUtil function, as in both cases we need to return
                         -- an appropriate mission function.
@@ -136,7 +136,7 @@ mission.sections =
                         if player:getFreeSlotsCount() == 0 then
                             return mission:messageSpecial(heavensTowerID.text.ITEM_CANNOT_BE_OBTAINED, xi.item.WINDURSTIAN_FLAG)
                         else
-                            return mission:progressEvent(407)
+                            return mission:progressCutscene(407)
                         end
                     end
                 end,
@@ -177,7 +177,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) >= 1 then
-                        return mission:progressEvent(4)
+                        return mission:progressCutscene(4)
                     end
                 end,
             },
@@ -196,7 +196,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) >= 1 then
-                        return mission:progressEvent(68)
+                        return mission:progressCutscene(68)
                     end
                 end,
             },

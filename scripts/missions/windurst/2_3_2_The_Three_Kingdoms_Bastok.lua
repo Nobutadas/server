@@ -31,7 +31,7 @@ mission.sections =
                     elseif missionStatus == 4 then
                         local onPathUntraveled = player:getCurrentMission(xi.mission.log_id.ROV) == xi.mission.id.rov.THE_PATH_UNTRAVELED and 1 or 0
 
-                        return mission:progressEvent(423, { [7] = onPathUntraveled })
+                        return mission:progressCutscene(423, { [7] = onPathUntraveled })
                     elseif missionStatus == 5 and not player:hasItem(xi.item.ONZ_OF_MYTHRIL_SAND) then
                         return mission:event(424)
                     else
@@ -58,7 +58,7 @@ mission.sections =
                         player:getMissionStatus(mission.areaId) == 5 and
                         npcUtil.tradeHasExactly(trade, xi.item.ONZ_OF_MYTHRIL_SAND)
                     then
-                        return mission:progressEvent(255)
+                        return mission:progressCutscene(255)
                     end
                 end,
             },

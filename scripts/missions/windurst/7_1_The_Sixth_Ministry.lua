@@ -82,11 +82,11 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 0 then
-                        return mission:progressEvent(715, 0, xi.ki.OPTISTERY_RING)
+                        return mission:progressCutscene(715, 0, xi.ki.OPTISTERY_RING)
                     elseif missionStatus == 1 then
                         return mission:progressEvent(716, 0, xi.ki.OPTISTERY_RING)
                     elseif missionStatus == 2 then
-                        return mission:progressEvent(724)
+                        return mission:progressCutscene(724)
                     end
                 end,
             },
@@ -139,7 +139,7 @@ mission.sections =
                         tomeOffset == 4 and
                         player:getMissionStatus(mission.areaId) == 1
                     then
-                        return mission:progressEvent(69)
+                        return mission:progressCutscene(69)
                     end
                 end,
             },

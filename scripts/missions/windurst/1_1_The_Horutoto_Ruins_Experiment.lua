@@ -85,7 +85,7 @@ mission.sections =
 
         [xi.zone.PORT_WINDURST] =
         {
-            ['Janshura-Rashura'] = mission:progressEvent(83),
+            ['Janshura-Rashura'] = mission:progressCutscene(83),
 
             onEventFinish =
             {
@@ -95,7 +95,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WALLS] =
         {
-            ['Zokima-Rokima'] = mission:progressEvent(96),
+            ['Zokima-Rokima'] = mission:progressCutscene(96),
 
             onEventFinish =
             {
@@ -105,7 +105,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WATERS] =
         {
-            ['Mokyokyo'] = mission:progressEvent(118),
+            ['Mokyokyo'] = mission:progressCutscene(118),
 
             onEventFinish =
             {
@@ -115,7 +115,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WOODS] =
         {
-            ['Rakoh_Buuma'] = mission:progressEvent(121),
+            ['Rakoh_Buuma'] = mission:progressCutscene(121),
 
             onEventFinish =
             {
@@ -172,7 +172,7 @@ mission.sections =
 
         [xi.zone.PORT_WINDURST] =
         {
-            ['Hakkuru-Rinkuru'] = mission:progressEvent(90),
+            ['Hakkuru-Rinkuru'] = mission:progressCutscene(90),
 
             onEventFinish =
             {
@@ -203,7 +203,7 @@ mission.sections =
         [xi.zone.INNER_HORUTOTO_RUINS] =
         {
             -- Gate: Magical Gizmo
-            ['_5c5'] = mission:progressEvent(42),
+            ['_5c5'] = mission:progressCutscene(42),
 
             onEventFinish =
             {

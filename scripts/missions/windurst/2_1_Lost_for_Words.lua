@@ -148,7 +148,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WATERS] =
         {
-            ['Tosuka-Porika'] = mission:progressEvent(160),
+            ['Tosuka-Porika'] = mission:progressCutscene(160),
 
             onEventFinish =
             {
@@ -167,7 +167,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WOODS] =
         {
-            ['Nanaa_Mihgo'] = mission:progressEvent(165, 0, xi.ki.LAPIS_CORAL, xi.ki.LAPIS_MONOCLE),
+            ['Nanaa_Mihgo'] = mission:progressCutscene(165, 0, xi.ki.LAPIS_CORAL, xi.ki.LAPIS_MONOCLE),
 
             onEventFinish =
             {
@@ -224,7 +224,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WOODS] =
         {
-            ['Nanaa_Mihgo'] = mission:progressEvent(169),
+            ['Nanaa_Mihgo'] = mission:progressCutscene(169),
 
             onEventFinish =
             {
@@ -254,7 +254,7 @@ mission.sections =
 
         [xi.zone.INNER_HORUTOTO_RUINS] =
         {
-            ['_5ca'] = mission:progressEvent(46),
+            ['_5ca'] = mission:progressCutscene(46),
 
             onEventFinish =
             {
@@ -281,7 +281,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WALLS] =
         {
-            ['_6n2'] = mission:progressEvent(337),
+            ['_6n2'] = mission:progressCutscene(337),
 
             onEventFinish =
             {
@@ -300,7 +300,7 @@ mission.sections =
 
         [xi.zone.WINDURST_WATERS] =
         {
-            ['Tosuka-Porika'] = mission:progressEvent(168),
+            ['Tosuka-Porika'] = mission:progressCutscene(168),
 
             onEventFinish =
             {

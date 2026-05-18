@@ -80,11 +80,11 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 0 then
-                        return mission:progressEvent(752, 0, xi.ki.STAR_SEEKER)
+                        return mission:progressCutscene(752, 0, xi.ki.STAR_SEEKER)
                     elseif missionStatus <= 3 then
                         return mission:progressEvent(753)
                     elseif missionStatus == 4 then
-                        return mission:progressEvent(758)
+                        return mission:progressCutscene(758)
                     end
                 end,
             },
@@ -172,7 +172,7 @@ mission.sections =
                         player:getMissionStatus(mission.areaId) == 3 and
                         player:hasKeyItem(xi.ki.MAGIC_DRAINED_STAR_SEEKER)
                     then
-                        return mission:progressEvent(120)
+                        return mission:progressCutscene(120)
                     end
                 end,
 
@@ -181,7 +181,7 @@ mission.sections =
 
                     if missionStatus >= 2 then
                         if player:hasKeyItem(xi.ki.STAR_SEEKER) then
-                            return mission:progressEvent(118, 0, xi.item.CURSE_WAND, xi.ki.STAR_SEEKER)
+                            return mission:progressCutscene(118, 0, xi.item.CURSE_WAND, xi.ki.STAR_SEEKER)
                         elseif
                             player:hasKeyItem(xi.ki.MAGIC_DRAINED_STAR_SEEKER) and
                             missionStatus == 4
@@ -379,7 +379,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) >= 1 then
-                        return mission:progressEvent(2)
+                        return mission:progressCutscene(2)
                     end
                 end,
             },

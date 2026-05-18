@@ -82,9 +82,9 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:hasKeyItem(xi.ki.STAR_CRESTED_SUMMONS_1) then
-                        return mission:progressEvent(214)
+                        return mission:progressCutscene(214)
                     elseif player:hasKeyItem(xi.ki.SHADOW_FRAGMENT) then
-                        return mission:progressEvent(216)
+                        return mission:progressCutscene(216)
                     end
                 end,
             },
@@ -122,7 +122,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 2 then
-                        return mission:progressEvent(6)
+                        return mission:progressCutscene(6)
                     end
                 end
             },
@@ -143,7 +143,7 @@ mission.sections =
                         end
 
                         -- TODO: Check captures, the player is most likely zoned and this even triggered via onZoneIn
-                        player:startEvent(7)
+                        player:startCutscene(7)
                     end
                 end,
 

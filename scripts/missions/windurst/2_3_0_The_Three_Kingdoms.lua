@@ -109,14 +109,14 @@ mission.sections =
                         if xi.settings.main.ENABLE_TRUST_QUESTS == 1 then
                             local needsSemihTrust = (not player:hasSpell(xi.magic.spell.SEMIH_LAFIHNA) and not player:findItem(xi.item.CIPHER_OF_SEMIHS_ALTER_EGO)) and 1 or 0
 
-                            return mission:progressEvent(95, 0, 0, 0, xi.ki.LETTER_TO_THE_CONSULS_WINDURST, 0, 0, 0, needsSemihTrust)
+                            return mission:progressCutscene(95, 0, 0, 0, xi.ki.LETTER_TO_THE_CONSULS_WINDURST, 0, 0, 0, needsSemihTrust)
                         else
-                            return mission:progressEvent(95, 0, 0, 0, xi.ki.LETTER_TO_THE_CONSULS_WINDURST)
+                            return mission:progressCutscene(95, 0, 0, 0, xi.ki.LETTER_TO_THE_CONSULS_WINDURST)
                         end
                     elseif missionStatus == 11 then
                         return mission:progressEvent(101, 0, 0, xi.ki.ADVENTURERS_CERTIFICATE)
                     else
-                        return mission:event(97)
+                        return mission:cutscene(97)
                     end
                 end,
             },
@@ -164,9 +164,9 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 1 then
-                        return mission:progressEvent(254)
+                        return mission:progressCutscene(254)
                     elseif missionStatus == 6 then
-                        return mission:progressEvent(256)
+                        return mission:progressCutscene(256)
                     elseif missionStatus == 7 then
                         return mission:progressEvent(258)
                     elseif missionStatus == 11 then
@@ -200,7 +200,7 @@ mission.sections =
                     if player:getMissionStatus(mission.areaId) == 1 then
                         local onPathUntraveled = player:getCurrentMission(xi.mission.log_id.ROV) == xi.mission.id.rov.THE_PATH_UNTRAVELED and 1 or 0
 
-                        return mission:progressEvent(582, { [7] = onPathUntraveled })
+                        return mission:progressCutscene(582, { [7] = onPathUntraveled })
                     end
                 end,
             },
@@ -211,7 +211,7 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 2 then
-                        return mission:progressEvent(546)
+                        return mission:progressCutscene(546)
                     elseif missionStatus == 6 then
                         return mission:messageText(northernSandoriaID.text.KASARORO_DIALOG + 7)
                     elseif missionStatus == 7 then
