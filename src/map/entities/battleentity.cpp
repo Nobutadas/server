@@ -2257,6 +2257,13 @@ void CBattleEntity::processActionEffectFlags(const action_t& action) const
             PTarget = loc.zone->GetCharByID(target.actorId);
         }
 
+        // Event action cancels events on PC targets
+        if (auto* PChar = dynamic_cast<CCharEntity*>(PTarget); PChar && PChar->isInEvent())
+        {
+            PChar->skipEvent();
+            // Checks for type of event is handled in skipEvent
+        }
+
         if (PTarget && this->allegiance != PTarget->allegiance)
         {
             emittedHostile = true;
