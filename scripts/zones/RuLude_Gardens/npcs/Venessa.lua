@@ -1,9 +1,7 @@
 -----------------------------------
 -- Area: Ru'Lude Gardens
 --  NPC: Venessa
--- Type: ENM
 -----------------------------------
----@type TNpcEntity
 local entity = {}
 
 local rewardMap =

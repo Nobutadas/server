@@ -33,6 +33,7 @@ return {
     ['Mengrenaux']              = { event = 270 },
     ['Meret']                   = { event = 584 },
     ['Merol']                   = { event = 340 },
+    ['Morangeart']              = { event = 523 },
     ['Nery']                    = { event = 372 },
     ['Noam']                    = { event = 363 },
     ['Odeya']                   = { event = 150 },

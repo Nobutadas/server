@@ -18,6 +18,7 @@ return {
     ['Goraow']               = { event = 105 },
     ['Gorvik']               = { event = 185 },
     ['Gray_Wolf']            = { event = 19 },
+    ['Gregory']              = { event = 256 },
     ['Gumbah']               = { event = 52 },
     ['Hound_Nose']           = { event = 132 },
     ['Leonie']               = { event = 568 },
