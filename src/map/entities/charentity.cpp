@@ -3028,7 +3028,7 @@ void CCharEntity::tryStartNextEvent()
 void CCharEntity::skipEvent()
 {
     TracyZoneScoped;
-    if (!isInEvent() || m_Locked)
+    if (!isInEvent() || !currentEvent->canSkip)
     {
         return;
     }
