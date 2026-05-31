@@ -85,6 +85,7 @@ zones[xi.zone.WINDURST_WATERS] =
         },
 
         LELEROON_GREEN_DOOR = 17752333,
+        PUROIKO_MAIKO       = GetFirstID('Puroiko-Maiko_WW'),
     },
 }
 

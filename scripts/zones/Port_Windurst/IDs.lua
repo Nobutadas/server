@@ -82,6 +82,7 @@ zones[xi.zone.PORT_WINDURST] =
     npc =
     {
         EXPLORER_MOOGLE = GetFirstID('Explorer_Moogle'),
+        MILMA_HAPILMA   = GetFirstID('Milma-Hapilma_WW'),
     },
 }
 

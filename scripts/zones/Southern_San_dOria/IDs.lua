@@ -155,6 +155,8 @@ zones[xi.zone.SOUTHERN_SAN_DORIA] =
         CAMEREINE = GetFirstID('Camereine'),
         EMOUSSINE = GetFirstID('Emoussine'),
         MEUNEILLE = GetFirstID('Meuneille'),
+        ARAVOGE   = GetFirstID('Aravoge_TK'),
+        ARPEVION  = GetFirstID('Arpevion_TK'),
     },
 }
 

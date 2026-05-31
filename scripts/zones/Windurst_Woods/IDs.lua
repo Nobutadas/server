@@ -110,6 +110,7 @@ zones[xi.zone.WINDURST_WOODS] =
         AMIMI   = GetFirstID('Amimi'),
         SARIALE = GetFirstID('Sariale'),
         ORLAINE = GetFirstID('Orlaine'),
+        HARARA  = GetFirstID('Harara_WW'),
     },
 }
 

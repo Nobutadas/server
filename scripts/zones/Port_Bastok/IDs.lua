@@ -94,6 +94,7 @@ zones[xi.zone.PORT_BASTOK] =
     },
     npc =
     {
+        FLYING_AXE = GetFirstID('Flying_Axe_IM'),
     },
 }
 

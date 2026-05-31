@@ -107,6 +107,7 @@ zones[xi.zone.BASTOK_MINES] =
         AZETTE             = GetFirstID('Azette'),
         QUELLE             = GetFirstID('Quelle'),
         EULAPHE            = GetFirstID('Eulaphe'),
+        CRYING_WIND        = GetFirstID('Crying_Wind_IM'),
     },
 }
 

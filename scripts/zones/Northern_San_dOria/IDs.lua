@@ -144,6 +144,7 @@ zones[xi.zone.NORTHERN_SAN_DORIA] =
             [17723497] = 51, -- Attarena
         },
         EXPLORER_MOOGLE = GetFirstID('Explorer_Moogle'),
+        ACHANTERE       = GetFirstID('Achantere_TK'),
     },
 }
 

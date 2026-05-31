@@ -46,16 +46,16 @@ local exForceMenuData =
 
 local exForceGateGlyphTable =
 {
-    -- [overseerNpcName] = glyphItemId
-    ['Crying_Wind_IM']   = xi.item.BASTOK_MINES_GLYPH,
-    ['Rabid_Wolf_IM']    = xi.item.BASTOK_MARKETS_GLYPH,
-    ['Flying_Axe_IM']    = xi.item.PORT_BASTOK_GLYPH,
-    ['Achantere_TK']     = xi.item.NORTH_SANDORIA_GLYPH,
-    ['Aravoge_TK']       = xi.item.WEST_SANDORIA_GLYPH,
-    ['Arpevion_TK']      = xi.item.EAST_SANDORIA_GLYPH,
-    ['Harara_WW']        = xi.item.WINDURST_WOODS_GLYPH,
-    ['Milma-Hapilma_WW'] = xi.item.PORT_WINDURST_GLYPH,
-    ['Puroiko-Maiko_WW'] = xi.item.WINDURST_WATERS_GLYPH,
+    -- [overseerNpcId] = glyphItemId
+    [zones[xi.zone.NORTHERN_SAN_DORIA].npc.ACHANTERE]  = xi.item.NORTH_SANDORIA_GLYPH,
+    [zones[xi.zone.SOUTHERN_SAN_DORIA].npc.ARAVOGE]    = xi.item.WEST_SANDORIA_GLYPH,
+    [zones[xi.zone.SOUTHERN_SAN_DORIA].npc.ARPEVION]   = xi.item.EAST_SANDORIA_GLYPH,
+    [zones[xi.zone.BASTOK_MINES].npc.CRYING_WIND]      = xi.item.BASTOK_MINES_GLYPH,
+    [zones[xi.zone.BASTOK_MARKETS].npc.RABID_WOLF]     = xi.item.BASTOK_MARKETS_GLYPH,
+    [zones[xi.zone.PORT_BASTOK].npc.FLYING_AXE]        = xi.item.PORT_BASTOK_GLYPH,
+    [zones[xi.zone.WINDURST_WOODS].npc.HARARA]         = xi.item.WINDURST_WOODS_GLYPH,
+    [zones[xi.zone.PORT_WINDURST].npc.MILMA_HAPILMA]   = xi.item.PORT_WINDURST_GLYPH,
+    [zones[xi.zone.WINDURST_WATERS].npc.PUROIKO_MAIKO] = xi.item.WINDURST_WATERS_GLYPH,
 }
 
 local exForceNumberRequiredTable = 
@@ -125,7 +125,7 @@ local function getExForceAvailable(player, npc, guardNation)
     end
 
     -- Only one of the nine gate guards can trigger this
-    if exForceGateGlyphTable[npc:getName()] == nil then
+    if exForceGateGlyphTable[npc:getID()] == nil then
         return 0
     end
 
@@ -1607,11 +1607,12 @@ xi.conquest.overseerOnEventFinish = function(player, csid, option, guardNation, 
     elseif option == 5 then
         local badge    = player:getStatusEffect(xi.effect.EF_BADGE)
         local regionId = badge:getPower()
+        local overseer = player:getEventTarget()
 
         -- Replace badge with glyph
         player:delStatusEffect(xi.effect.EF_BADGE)
         npcUtil.giveKeyItem(player, exForceMenuData[regionId].ki) -- TODO: Is this a temporary key item?
-        npcUtil.giveItem(player, exForceGateGlyphTable[player:getEventTarget():getName()]) -- TODO: This feels wrong
+        npcUtil.giveItem(player, exForceGateGlyphTable[overseer:getID()])
         -- TODO: Check if a player already has a KI, if new text is displayed. 
 
         -- Bestow Signet
