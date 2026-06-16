@@ -48,7 +48,8 @@ public:
 
     virtual ~CState() = default;
 
-    CBaseEntity* GetTarget() const;
+    CBaseEntity* GetTarget()   const;
+    uint16       GetTargetID() const;
     void         SetTarget(uint16 targid);
 
     bool HasErrorMsg() const;
@@ -77,7 +78,6 @@ protected:
     virtual void UpdateTarget(uint16 targid);
     virtual void UpdateTarget(CBaseEntity* target);
 
-    uint16            GetTargetID() const;
     void              Complete();
     timer::time_point GetEntryTime() const;
     bool              WasExitDelayed();
