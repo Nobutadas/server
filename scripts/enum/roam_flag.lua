@@ -18,4 +18,5 @@ xi.roamFlag =
     SCRIPTED = 0x100, -- calls lua method for roaming logic
     IGNORE   = 0x200, -- ignore all hate, except linking hate
     STEALTH  = 0x400, -- stays name hidden and untargetable until someone comes close (chigoe)
+    FOLLOW   = 0x800, -- follows a player when sighted
 }

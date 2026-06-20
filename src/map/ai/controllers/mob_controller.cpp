@@ -1090,9 +1090,9 @@ auto CMobController::DoRoamTick(timer::time_point tick) -> Task<void>
         {
             followRoamDistance = PMob->getMobMod(MOBMOD_FOLLOW_LEASH_RANGE);
         }
-        // Only path to leader if they're moving
+        // Only path to leader if they're moving. Players have no PathFind, so always path toward them.
         if (distance(PMob->loc.p, PFollowTarget->loc.p) > followRoamDistance &&
-            PFollowTarget->PAI->PathFind->IsFollowingPath())
+            (PFollowTarget->PAI->PathFind == nullptr || PFollowTarget->PAI->PathFind->IsFollowingPath()))
         {
             float followStopRange = 2.0f;
 
@@ -1102,6 +1102,8 @@ auto CMobController::DoRoamTick(timer::time_point tick) -> Task<void>
             }
             PMob->PAI->PathFind->PathAround(PFollowTarget->loc.p, followStopRange, PATHFLAG_RUN | PATHFLAG_WALLHACK);
         }
+
+        FaceTarget(PFollowTarget->targid); // Rotate to face player when standing still. 
 
         if (!PMob->PAI->PathFind->IsFollowingPath())
         {
