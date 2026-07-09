@@ -27,10 +27,35 @@ mobskillObject.onMobWeaponSkill = function(mob, target, skill, action)
 
     -- TODO: Goblin mines in [S] zones
 
-    -- TODO: Excavation Duty Assault
-
     -- TODO: Blifnix Oilycheek's Goblin Mines
 
+    -- Assault: Excavation Duty
+    if mob:getZoneID() == xi.zone.LEBROS_CAVERN then
+        mob:entityAnimationPacket('bom0') -- Assault: Excavation Duty
+
+        local targetId    = target:getID()
+        local firstRockId = zones[xi.zone.LEBROS_CAVERN].mob.BRITTLE_ROCK
+
+        if
+            targetId >= firstRockId and
+            targetId <= firstRockId + 9
+        then
+            target:timer(2000, function(rockArg)
+                rockArg:setHP(0)
+            end)
+
+            target:takeDamage(8, mob, xi.attackType.MAGICAL, xi.damageType.FIRE)
+            return 8
+
+        -- Mobs take 170 in uncapped
+        -- TODO: Capture mine damage to mobs in 70/60/50 cap
+        else
+            target:takeDamage(170, mob, xi.attackType.MAGICAL, xi.damageType.FIRE)
+            return 170
+        end
+    end
+
+    -- Default
     local info = xi.mobskills.mobMagicalMove(mob, target, skill, action, params)
 
     if xi.mobskills.processDamage(mob, target, skill, action, info) then
@@ -41,9 +66,15 @@ mobskillObject.onMobWeaponSkill = function(mob, target, skill, action)
 end
 
 mobskillObject.onMobSkillFinalize = function(mob, skill)
-    mob:entityAnimationPacket('mai1') -- Animation: Mine jumps up and explodes.
+    if mob:getZoneID() == xi.zone.LEBROS_CAVERN then
+        mob:timer(4000, function(bombArg)
+            DespawnMob(bombArg:getTargID(), bombArg:getInstance())
+        end)
 
-    mob:setHP(0)
+    else
+        mob:entityAnimationPacket('mai1') -- Animation: Mine jumps up and explodes.
+        mob:setHP(0) -- TODO: Mine appears to despawn after 4-5 seconds, not have HP set to 0.
+    end
 end
 
 return mobskillObject
