@@ -2,7 +2,11 @@
 -- Area: Arrapago Reef
 --  Mob: Lamia Idolater
 -----------------------------------
-mixins = { require('scripts/mixins/families/qutrub') }
+mixins =
+{
+    require('scripts/mixins/families/qutrub'),
+    require('scripts/mixins/break_mob'),
+}
 -----------------------------------
 ---@type TMobEntity
 local entity = {}

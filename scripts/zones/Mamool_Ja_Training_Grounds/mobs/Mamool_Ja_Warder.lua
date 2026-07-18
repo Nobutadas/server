@@ -2,7 +2,7 @@
 -- Area: Mamool Ja Training Grounds (Imperial Agent Rescue)
 --  MOB: Mamool Ja Warder (NIN, WHM, BST)
 -----------------------------------
-mixins = { require('scripts/mixins/weapon_break') }
+mixins = { require('scripts/mixins/break_mob') }
 local ID = zones[xi.zone.MAMOOL_JA_TRAINING_GROUNDS]
 -----------------------------------
 ---@type TMobEntity

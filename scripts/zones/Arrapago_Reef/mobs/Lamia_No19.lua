@@ -6,7 +6,7 @@
 -- TODO: Get more data on the reveal chance rate. 80% is an estimate based on current captures.
 -- TODO: Get more data on the maximum respawn time. Minimum is 1 hour based on current captures, but more data is needed.
 -----------------------------------
-mixins = { require('scripts/mixins/weapon_break') }
+mixins = { require('scripts/mixins/break_mob') }
 -----------------------------------
 -- Patrol zones. She spawns in one at random, starts on its first point, walks the list to the end, then back up, and repeats
 local patrolZones =

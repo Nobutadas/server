@@ -3,7 +3,7 @@
 -- MOB: Jakko
 -- Notes: spawns with random hate target
 -----------------------------------
-mixins = { require('scripts/mixins/families/imp') }
+mixins = { require('scripts/mixins/break_mob') }
 -----------------------------------
 
 ---@type TMobEntity

@@ -2,7 +2,7 @@
 -- Area: Arrapago Remnants
 --  Mob: Merrow Kabukidancer
 -----------------------------------
-mixins = { require('scripts/mixins/weapon_break') }
+mixins = { require('scripts/mixins/break_mob') }
 -----------------------------------
 ---@type TMobEntity
 local entity = {}

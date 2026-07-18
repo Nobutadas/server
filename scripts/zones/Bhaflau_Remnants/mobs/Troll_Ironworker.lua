@@ -2,7 +2,7 @@
 -- Area: Bhaflau Remnants
 --  MOB: Troll Ironworker
 -----------------------------------
-mixins = { require('scripts/mixins/weapon_break') }
+mixins = { require('scripts/mixins/break_mob') }
 require('scripts/zones/Bhaflau_Remnants/globals/zoneUtil')
 -----------------------------------
 

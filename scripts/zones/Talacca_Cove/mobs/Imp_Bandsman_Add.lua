@@ -2,7 +2,7 @@
 -- Area: Talacca Cove
 --   NM: Imp Bandsman Add
 -----------------------------------
-mixins = { require('scripts/mixins/families/imp') }
+mixins = { require('scripts/mixins/break_mob') }
 -----------------------------------
 ---@type TMobEntity
 local entity = {}

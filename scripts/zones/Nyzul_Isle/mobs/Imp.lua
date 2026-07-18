@@ -2,7 +2,7 @@
 -- Area: Nyzul Isle
 --  MOB: Imp
 -----------------------------------
-mixins = { require('scripts/mixins/families/imp') }
+mixins = { require('scripts/mixins/break_mob') }
 -----------------------------------
 ---@type TMobEntity
 local entity = {}

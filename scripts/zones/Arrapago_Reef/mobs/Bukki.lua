@@ -5,7 +5,7 @@
 mixins =
 {
     require('scripts/mixins/job_special'),
-    require('scripts/mixins/families/imp'),
+    require('scripts/mixins/break_mob'),
 }
 -----------------------------------
 ---@type TMobEntity

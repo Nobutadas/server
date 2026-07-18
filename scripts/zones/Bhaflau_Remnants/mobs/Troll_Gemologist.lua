@@ -3,7 +3,7 @@
 --  MOB: Troll Gemologist
 -----------------------------------
 local ID = zones[xi.zone.BHAFLAU_REMNANTS]
-mixins = { require('scripts/mixins/weapon_break') }
+mixins = { require('scripts/mixins/break_mob') }
 require('scripts/zones/Bhaflau_Remnants/globals/zoneUtil')
 -----------------------------------
 
