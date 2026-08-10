@@ -118,8 +118,10 @@ mission.sections =
 
                     if missionStatus == 0 then
                         return mission:progressEvent(456, 0, xi.ki.SOUTHWESTERN_STAR_CHARM)
+                    elseif missionStatus <= 2 then
+                        return mission:event(457)
                     elseif missionStatus == 3 then
-                        return mission:progressEvent(457)
+                        return mission:event(459)
                     end
                 end,
             },

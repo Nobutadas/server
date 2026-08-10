@@ -113,6 +113,7 @@ mission.sections =
                         player:getLocalVar('battlefieldWin') == xi.battlefield.id.SAINTLY_INVITATION
                     then
                         player:addTitle(xi.title.VICTOR_OF_THE_BALGA_CONTEST)
+                        player:delKeyItem(xi.ki.HOLY_ONES_INVITATION)
                         npcUtil.giveKeyItem(player, xi.ki.BALGA_CHAMPION_CERTIFICATE)
                         player:setMissionStatus(mission.areaId, 2)
                     end
@@ -126,7 +127,7 @@ mission.sections =
             {
                 onTrigger = function(player, npc)
                     if player:getMissionStatus(mission.areaId) == 2 then
-                        return mission:progressEvent(45, 0, 200)
+                        return mission:progressEvent(45, 0, xi.ki.HOLY_ONES_OATH)
                     end
                 end,
             },
@@ -135,7 +136,7 @@ mission.sections =
             {
                 [45] = function(player, csid, option, npc)
                     if npcUtil.giveItem(player, xi.item.ASHURA_NECKLACE) then
-                        player:delKeyItem(xi.ki.HOLY_ONES_INVITATION)
+                        player:delKeyItem(xi.ki.BALGA_CHAMPION_CERTIFICATE)
                         npcUtil.giveKeyItem(player, xi.ki.HOLY_ONES_OATH)
                         player:setMissionStatus(mission.areaId, 3)
                     end

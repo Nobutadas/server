@@ -131,7 +131,7 @@ mission.sections =
 
                     if
                         (missionStatus == 4 or missionStatus == 5) and
-                        npcUtil.tradeMatches(trade, { { xi.item.CLUMP_OF_GOOBBUE_HUMUS, 1 } }) -- NOTE: No associated trade completion?
+                        npcUtil.tradeMatches(trade, { { xi.item.CLUMP_OF_GOOBBUE_HUMUS, 1 } })
                     then
                         return mission:progressEvent(13)
                     end
@@ -150,6 +150,7 @@ mission.sections =
             onEventFinish =
             {
                 [13] = function(player, csid, option, npc)
+                    player:tradeComplete()
                     player:setMissionStatus(mission.areaId, 6)
                     npcUtil.giveKeyItem(player, xi.ki.LETTER_FROM_ZONPA_ZIPPA)
                 end,
@@ -204,7 +205,6 @@ mission.sections =
 
                 [621] = function(player, csid, option, npc)
                     player:setMissionStatus(mission.areaId, 7)
-                    player:messageSpecial(windurstWoodsID.text.KEYITEM_LOST, xi.ki.LETTER_FROM_ZONPA_ZIPPA)
                     player:delKeyItem(xi.ki.LETTER_FROM_ZONPA_ZIPPA)
                 end,
             },

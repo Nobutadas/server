@@ -80,9 +80,9 @@ mission.sections =
                     local missionStatus = player:getMissionStatus(mission.areaId)
 
                     if missionStatus == 0 then
-                        return mission:progressEvent(752, 0, xi.ki.STAR_SEEKER)
+                        return mission:progressEvent(752, 0, xi.ki.AURASTERY_RING, 255)
                     elseif missionStatus <= 3 then
-                        return mission:progressEvent(753)
+                        return mission:event(753)
                     elseif missionStatus == 4 then
                         return mission:progressEvent(758)
                     end
@@ -98,7 +98,9 @@ mission.sections =
                 end,
 
                 [758] = function(player, csid, option, npc)
-                    mission:complete(player)
+                    if mission:complete(player) then
+                        player:delKeyItem(xi.ki.MAGIC_DRAINED_STAR_SEEKER)
+                    end
                 end,
             },
         },
@@ -186,9 +188,9 @@ mission.sections =
                             player:hasKeyItem(xi.ki.MAGIC_DRAINED_STAR_SEEKER) and
                             missionStatus == 4
                         then
-                            return mission:progressEvent(121)
+                            return mission:event(121)
                         else
-                            return mission:progressEvent(119, 0, xi.item.CURSE_WAND)
+                            return mission:event(119, 0, xi.item.CURSE_WAND, xi.ki.STAR_SEEKER)
                         end
                     end
                 end,
@@ -378,7 +380,7 @@ mission.sections =
             ['QuHau_Spring'] =
             {
                 onTrigger = function(player, npc)
-                    if player:getMissionStatus(mission.areaId) >= 1 then
+                    if player:getMissionStatus(mission.areaId) == 1 then
                         return mission:progressEvent(2)
                     end
                 end,
