@@ -118,11 +118,34 @@ mission.sections =
 
                     if missionStatus == 0 then
                         return mission:progressEvent(456, 0, xi.ki.SOUTHWESTERN_STAR_CHARM)
+                    elseif missionStatus == 1 or missionStatus == 2 then
+                        return mission:event(457)
                     elseif missionStatus == 3 then
-                        return mission:progressEvent(457)
+                        return mission:event(459)
                     end
                 end,
             },
+
+            ['Janshura-Rashura'] = mission:event(452),
+
+            ['Kuroido-Moido'] =
+            {
+                onTrigger = function(player, npc)
+                    local missionStatus = player:getMissionStatus(mission.areaId)
+
+                    if missionStatus == 1 or missionStatus == 2 then
+                        return mission:event(458)
+                    elseif missionStatus == 3 then
+                        return mission:event(460)
+                    end
+                end,
+            },
+
+            ['Nine_of_Clubs'] = mission:event(454),
+
+            ['Puo_Rhen'] = mission:event(453), -- TODO: Verify with capture
+
+            ['Ten_of_Clubs'] = mission:event(455),
 
             onEventFinish =
             {
@@ -148,8 +171,11 @@ mission.sections =
 
                             return mission:messageSpecial(outerHorutotoID.text.GUARDIAN_BLOCKING_WAY)
                         elseif missionStatus == 2 then
+                            player:messageSpecial(outerHorutotoID.text.STAR_CHARM_DISAPPEARS, xi.zone.OUTER_HORUTOTO_RUINS, xi.ki.SOUTHWESTERN_STAR_CHARM)
                             return mission:progressEvent(68)
                         end
+                    else
+                        return mission:messageSpecial(outerHorutotoID.text.DOOR_WONT_OPEN_STAR_CHARM, xi.zone.OUTER_HORUTOTO_RUINS, xi.ki.SOUTHWESTERN_STAR_CHARM)
                     end
                 end,
             },
@@ -197,6 +223,104 @@ mission.sections =
                     mission:complete(player)
                 end,
             },
+        },
+
+        [xi.zone.WINDURST_WALLS] =
+        {
+            ['Chawo_Shipeynyo'] = mission:event(354), -- TODO: Verify with capture
+
+            ['Keo-Koruo'] = mission:event(353), -- TODO: Verify with capture
+
+            ['Pakke-Pokke'] = mission:event(352), -- TODO: Verify with capture
+
+            ['Zokima-Rokima'] = mission:event(351),
+        },
+
+        [xi.zone.WINDURST_WATERS] =
+        {
+            ['Dagoza-Beruza'] = mission:event(703),
+
+            ['Mokyokyo'] = mission:event(701),
+
+            ['Panna-Donna'] = mission:event(702),
+
+            ['Ten_of_Hearts'] = mission:event(704), -- TODO: Verify with capture
+        },
+
+        [xi.zone.WINDURST_WOODS] =
+        {
+            ['Miiri-Wohri'] = mission:event(561), -- TODO: Verify with capture
+
+            ['Rakoh_Buuma'] = mission:event(558),
+
+            ['Sola_Jaab'] = mission:event(560),
+
+            ['Tih_Pikeh'] = mission:event(559),
+        },
+    },
+
+    { -- Dialog between missions
+        check = function(player, currentMission, missionStatus, vars)
+            return currentMission == xi.mission.id.nation.NONE and
+                player:getNation() == mission.areaId and
+                player:hasCompletedMission(mission.areaId, mission.missionId) and
+                not player:hasCompletedMission(mission.areaId, xi.mission.id.windurst.SAINTLY_INVITATION)
+        end,
+
+        [xi.zone.PORT_WINDURST] =
+        {
+            ['Goltata'] = mission:event(494),
+
+            ['Hakkuru-Rinkuru'] = mission:event(461),
+
+            ['Kunchichi'] = mission:event(492),
+
+            ['Kuroido-Moido'] = mission:event(462),
+
+            ['Maabu-Sonbu'] = mission:event(491),
+
+            ['Mojo-Pojo'] = mission:event(493),
+
+            ['Nine_of_Clubs'] = mission:event(489),
+
+            ['Puo_Rhen'] = mission:event(488), -- TODO: Verify with capture
+
+            ['Ten_of_Clubs'] = mission:event(490),
+        },
+
+        [xi.zone.HEAVENS_TOWER] =
+        {
+            ['Kinono'] = mission:event(331),
+
+            ['Kiwawa'] = mission:event(317),
+
+            ['Kupipi'] = mission:event(314),
+
+            ['Nebibi'] = mission:event(330),
+
+            ['Ufu_Koromoa'] = mission:event(324),
+
+            ['Zubaba'] = mission:event(315),
+        },
+
+        -- TODO: Capture guard events post mission for Windurst Walls
+
+        [xi.zone.WINDURST_WATERS] =
+        {
+            ['Dagoza-Beruza'] = mission:event(769),
+
+            ['Panna-Donna'] = mission:event(768),
+
+            ['Ten_of_Hearts'] = mission:event(770), -- TODO: Verify with capture
+        },
+
+        [xi.zone.WINDURST_WOODS] =
+        {
+            ['Miiri-Wohri'] = mission:event(596), -- TODO: Verify with capture
+
+            ['Sola_Jaab'] = mission:event(595),
+
+            ['Tih_Pikeh'] = mission:event(594),
         },
     },
 }
