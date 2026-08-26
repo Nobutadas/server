@@ -369,7 +369,6 @@ void GP_CLI_COMMAND_ACTION::process(MapSession* PSession, CCharEntity* PChar) co
                 return;
             }
 
-            PChar->setCharVar("expLost", 0);
             PChar->requestedWarp = WarpRequest::HomePoint;
         }
         break;

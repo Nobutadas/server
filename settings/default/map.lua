@@ -85,6 +85,9 @@ xi.settings.map =
     -- Level 5 and below don't lose influence: http://wiki.ffo.jp/html/498.html
     MINIMUM_LEVEL_CONQUEST_INFUENCE_LOSS = 6,
 
+    -- Decides if exp loss is required to add a player homepoint towards beastmen influence in conquest.
+    CONQUEST_BEASTMEN_INFLUENCE_REQUIRES_EXP_LOSS = true,
+
     -- Enable/disable Level Sync
     LEVEL_SYNC_ENABLE = true,
 

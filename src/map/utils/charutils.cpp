@@ -6940,12 +6940,18 @@ auto HomePoint(CCharEntity* PChar, bool resetHPMP) -> bool
         PChar->health.mp = PChar->GetMaxMP();
 
         // Homepointing increases beastmen influence.
-        const REGION_TYPE deathRegion = PChar->loc.zone->GetRegionID();
+        const REGION_TYPE deathRegion    = PChar->loc.zone->GetRegionID();
+        const bool        requireExpLoss = settings::get<bool>("map.CONQUEST_BEASTMEN_INFLUENCE_REQUIRES_EXP_LOSS");
+        const bool        lostExp        = GetCharVar(PChar, "expLost") > 0;
+
         if (deathRegion <= REGION_TYPE::TAVNAZIA &&
-            PChar->GetMLevel() >= settings::get<uint8>("map.MINIMUM_LEVEL_CONQUEST_INFUENCE_LOSS"))
+            PChar->GetMLevel() >= settings::get<uint8>("map.MINIMUM_LEVEL_CONQUEST_INFUENCE_LOSS") &&
+            (lostExp || !requireExpLoss))
         {
             conquest::AddPlayerHomepoints(1, deathRegion);
         }
+
+        SetCharVar(PChar, "expLost", 0);
     }
 
     PChar->loc.boundary    = 0;
