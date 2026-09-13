@@ -25,8 +25,6 @@
 
 #include "common/ipp.h"
 
-#include "common/settings.h"
-
 ConquestSystem::ConquestSystem(WorldEngine& worldServer)
 : worldServer_(worldServer)
 {
@@ -158,16 +156,18 @@ bool ConquestSystem::updateInfluencePoints(int points, unsigned int nation, REGI
         points *= 2;
     }
 
+    // Scale the influence points and make sure if points are not 0, the nation gets at least 1.
+    if (points > 0)
+    {
+        points = std::max<int>(points / 10, 1);
+    }
+
     const int total = influences[0] + influences[1] + influences[2];
 
-    // Read from main settings. Protect against 0 or too high of number.
     // Restricted by a factor of 100 because of packet lines in 0x05e_conquest.cpp
-    const int32 influenceCapSetting = std::clamp<int32>(settings::get<int32>("main.CONQUEST_INFLUENCE_CAP"), 1, 20000000);
+    constexpr int32 INFLUENCE_CAP = INT32_MAX / 100;
 
-    // Account for situation where influenceCapSetting was reduced midweek.
-    const int32 influenceCap = std::max<int32>(influenceCapSetting, total);
-
-    const int room = influenceCap - total;
+    const int room = INFLUENCE_CAP - total;
 
     if (points <= room) // Pool is not capped and there is space. Straight add.
     {
@@ -179,7 +179,7 @@ bool ConquestSystem::updateInfluencePoints(int points, unsigned int nation, REGI
         influences[nation] += room;
 
         // Do not adjust anything if the nation is already at the pool maximum.
-        if (influences[nation] < influenceCap)
+        if (influences[nation] < INFLUENCE_CAP)
         {
             const int overflow = points - room;
 
@@ -191,7 +191,7 @@ bool ConquestSystem::updateInfluencePoints(int points, unsigned int nation, REGI
                     continue;
                 }
 
-                const int64 share = static_cast<int64>(overflow) * influences[i] / (influenceCap - influences[nation]);
+                const int64 share = static_cast<int64>(overflow) * influences[i] / (INFLUENCE_CAP - influences[nation]);
                 auto        loss  = std::min<int>(static_cast<int>(share), influences[i]);
                 influences[i] -= loss;
                 lost += loss;
