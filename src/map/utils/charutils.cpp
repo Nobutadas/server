@@ -4693,7 +4693,7 @@ void DistributeExperiencePoints(CCharEntity* PChar, CMobEntity* PMob)
                 }
             }
 
-            charutils::AddExperiencePoints(false, true, false, PMember, PMob, exp, mobCheck, wasChained);
+            charutils::AddExperiencePoints(false, true, false, PMember, PMob, exp, mobCheck, wasChained, true, calcExpResult->influenceExp);
         });
     // clang-format on
 }
@@ -5016,7 +5016,7 @@ void DelExperiencePoints(CCharEntity* PChar, float retainPercent, uint16 forcedX
  *                                                                       *
  ************************************************************************/
 
-void AddExperiencePoints(bool expFromRaise, bool awardRegionPoints, bool fromScripts, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck, bool isexpchain, bool allowLimitPoints)
+void AddExperiencePoints(bool expFromRaise, bool awardRegionPoints, bool fromScripts, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck, bool isexpchain, bool allowLimitPoints, uint32 influenceExp)
 {
     TracyZoneScoped;
 
@@ -5120,8 +5120,7 @@ void AddExperiencePoints(bool expFromRaise, bool awardRegionPoints, bool fromScr
             conquest::AddConquestPoints(PChar, exp);
 
             // Add influence for the player's region.
-            // TODO: Chain exp should not affect influence.
-            conquest::GainInfluencePoints(PChar, exp);
+            conquest::GainInfluencePoints(PChar, influenceExp);
         }
 
         // Should this user be awarded imperial standing..

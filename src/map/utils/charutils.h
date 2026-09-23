@@ -114,7 +114,7 @@ void DelExperiencePoints(CCharEntity* PChar, float retainpct, uint16 forcedXpLos
 void DistributeExperiencePoints(CCharEntity* PChar, CMobEntity* PMob);
 void DistributeGil(CCharEntity* PChar, CMobEntity* PMob);
 void DistributeItem(CCharEntity* PChar, CBaseEntity* PEntity, uint16 itemid, uint16 droprate);
-void AddExperiencePoints(bool expFromRaise, bool awardRegionPoints, bool fromScripts, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck = EMobDifficulty::TooWeak, bool isexpchain = false, bool allowLimitPoints = true);
+void AddExperiencePoints(bool expFromRaise, bool awardRegionPoints, bool fromScripts, CCharEntity* PChar, CBaseEntity* PMob, uint32 exp, EMobDifficulty mobCheck = EMobDifficulty::TooWeak, bool isexpchain = false, bool allowLimitPoints = true, uint32 influenceExp = 0);
 
 uint16 AddCapacityBonus(CCharEntity* PChar, uint16 capacityPoints);
 void   AddCapacityPoints(CCharEntity* PChar, CBaseEntity* PMob, uint32 capacityPoints, int16 levelDiff = 0, bool isCapacityChain = false);

@@ -1267,9 +1267,10 @@ auto CalculateExperiencePoints(CCharEntity* PMember, CMobEntity* PMob, const Cal
     }
 
     CalcExpResult calcResult{};
-    calcResult.exp         = result["exp"].get_or(0);
-    calcResult.wasChained  = result["chainActive"].get_or(false);
-    calcResult.chainWindow = result["chainWindow"].get_or(0);
+    calcResult.exp          = result["exp"].get_or(0);
+    calcResult.wasChained   = result["chainActive"].get_or(false);
+    calcResult.chainWindow  = result["chainWindow"].get_or(0);
+    calcResult.influenceExp = result["influenceExp"].get_or(calcResult.exp);
     return calcResult;
 }
 

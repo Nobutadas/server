@@ -238,9 +238,10 @@ struct CalcExpInput
 
 struct CalcExpResult
 {
-    uint32 exp         = 0;
-    bool   wasChained  = false;
-    uint16 chainWindow = 0;
+    uint32 exp          = 0;
+    bool   wasChained   = false;
+    uint16 chainWindow  = 0;
+    uint32 influenceExp = 0;
 };
 
 auto SetupExperiencePoints() -> Maybe<ExperiencePointsTable>; // Validate functions and set up the base experience points table.

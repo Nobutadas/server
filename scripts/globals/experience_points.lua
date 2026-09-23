@@ -106,18 +106,19 @@ end
 -----------------------------------
 -- Dedication
 -----------------------------------
-local function handleDedicationBonus(member, exp, regionId)
+local function handleDedicationBonus(member, exp, influenceExp, regionId)
     local dedication = member:getStatusEffect(xi.effect.DEDICATION)
     if
         not dedication or
         regionId == xi.region.ABYSSEA
     then
-        return 0
+        return 0, 0
     end
 
     local percentBonus    = dedication:getPower()
     local remainingCap    = dedication:getSubPower()
     local dedicationBonus = utils.clamp(math.floor(exp * percentBonus / 100), 0, remainingCap)
+    local influenceBonus  = utils.clamp(math.floor(influenceExp * percentBonus / 100), 0, remainingCap)
 
     remainingCap = remainingCap - dedicationBonus
     dedication:setSubPower(remainingCap)
@@ -127,7 +128,7 @@ local function handleDedicationBonus(member, exp, regionId)
         member:delStatusEffect(xi.effect.DEDICATION)
     end
 
-    return dedicationBonus
+    return dedicationBonus, influenceBonus
 end
 
 -----------------------------------
@@ -182,6 +183,8 @@ xi.experiencePoints.calculate = function(member, mob, data)
     -- Apply the per-monster experience cap before adding experience chains and additional multipliers like Dedication, Corsairs Roll etc.)
     experiencePoints = math.min(experiencePoints, getPerMonsterCap(data.memberLevel))
 
+    local influencePoints = experiencePoints
+
     -- Experience chains
     local chainActive = false
     local chainWindow = 0
@@ -201,12 +204,21 @@ xi.experiencePoints.calculate = function(member, mob, data)
     end
 
     -- Handle all experience point bonuses, including Dedication effects, RoV Key Items, Sanction, and EXP bonus gear/traits (Corsair Roll via xi.mod.EXP_BONUS)
-    local dedicationBonus = handleDedicationBonus(member, experiencePoints, data.regionId)
+    local dedicationBonus, influenceDedicationBonus = handleDedicationBonus(member, experiencePoints, influencePoints, data.regionId)
     local rhapsodiesBonus = handleRoVBonus(member)
     local sanctionBonus   = xi.experiencePoints.getSanctionBonus(member, data.regionId)
-    local totalBonus      = dedicationBonus + math.floor(experiencePoints * (member:getMod(xi.mod.EXP_BONUS) + rhapsodiesBonus + sanctionBonus) / 100)
+    local bonusPercent    = member:getMod(xi.mod.EXP_BONUS) + rhapsodiesBonus + sanctionBonus
+    local totalBonus      = dedicationBonus + math.floor(experiencePoints * bonusPercent / 100)
+    local influenceBonus  = influenceDedicationBonus + math.floor(influencePoints * bonusPercent / 100)
 
     experiencePoints = math.max(experiencePoints + totalBonus, 0)
+    influencePoints  = math.max(influencePoints + influenceBonus, 0)
 
-    return { exp = math.floor(experiencePoints), chainActive = chainActive, chainWindow = chainWindow }
+    return
+    {
+        exp          = math.floor(experiencePoints),
+        chainActive  = chainActive,
+        chainWindow  = chainWindow,
+        influenceExp = math.floor(influencePoints),
+    }
 end
