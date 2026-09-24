@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../schemas/enums/_enum.schema.json
+
+meta:
+  cpp:
+    underlying: uint8_t
+  lua:
+    table: xi.besiegedPrisoner
+
+values:
+  kahah_hobichai: 1
+  allard:         2
+  zafif:          3
+  chayaya:        4
+  dahaaba:        5
+  chochoroon:     6
+  shihu_danhu:    7
+  suldiran:       8
+  djinabaha:      9
+  dabigo:         10
+  rughadjeen:     11
+  gadalar:        12
+  mihli_aliapoh:  13
+  zazarg:         14
+  najelith:       15
