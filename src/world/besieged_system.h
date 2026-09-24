@@ -21,24 +21,19 @@
 
 #pragma once
 
+#include "common/regional_event.h"
 #include "world_engine.h"
 
 class BesiegedSystem
 {
 public:
-    BesiegedSystem(WorldEngine& worldServer)
-    : worldServer_(worldServer)
-    {
-        std::ignore = worldServer_;
-    }
+    BesiegedSystem(WorldEngine& worldServer);
 
-    ~BesiegedSystem() = default;
-
-    bool handleMessage(uint8 messageType, IPPMessage&& message)
-    {
-        return false;
-    }
+    bool handleMessage(uint8 messageType, IPPMessage&& message);
 
 private:
+    void prisonerChange(xi::BesiegedPrisoner prisoner, xi::BesiegedStronghold stronghold);
+    void setPrisonerStronghold(xi::BesiegedPrisoner prisoner, xi::BesiegedStronghold stronghold, uint8 cell);
+
     WorldEngine& worldServer_;
 };
