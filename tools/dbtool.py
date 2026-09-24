@@ -198,7 +198,6 @@ player_data = [
     "audit_trade.sql",
     "audit_vendor.sql",
     "besieged_prisoners.sql",
-    "besieged_strongholds.sql",
     "char_blacklist.sql",
     "char_chocobos.sql",
     "char_effects.sql",
