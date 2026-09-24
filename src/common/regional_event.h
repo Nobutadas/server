@@ -25,6 +25,9 @@
 
 #include "map/conquest_data.h"
 
+#include "data/enums/besieged_prisoner.h"
+#include "data/enums/besieged_stronghold.h"
+
 //
 // Conquest
 //
@@ -102,9 +105,22 @@ struct ConquestAddCounter
 
 enum BesiegedMessage : uint8
 {
+    // World notifies map a prisoner has moved
+    W2M_PrisonerChange,
+
+    // Map moves a prisoner
+    M2W_PrisonerChange,
 };
 
 DECLARE_FORMAT_AS_UNDERLYING(BesiegedMessage);
+
+
+struct BesiegedPrisoner
+{
+    xi::BesiegedPrisoner   prisoner;
+    xi::BesiegedStronghold stronghold;
+    uint8                  cell;
+};
 
 //
 // Campaign
